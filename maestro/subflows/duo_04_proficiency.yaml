@@ -1,0 +1,12 @@
+appId: com.duolingo
+---
+# Onboarding — proficiency and confirmation dialog.
+- assertVisible: "How much Spanish do you know?"
+- tapOn: "I’m new to Spanish"
+- assertVisible: "I know some common words"
+- assertVisible: "I can have basic conversations"
+- assertVisible: "I can talk about various topics"
+- assertVisible: "I can discuss most topics in detail"
+- tapOn: "CONTINUE"
+- tapOn: "Okay, we’ll start fresh!"
+- tapOn: "CONTINUE"

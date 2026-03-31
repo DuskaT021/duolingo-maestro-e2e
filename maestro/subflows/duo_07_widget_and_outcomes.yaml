@@ -1,0 +1,13 @@
+appId: com.duolingo
+---
+# Onboarding — widget prompt (dismiss) and 3-month outcomes.
+- assertVisible: "I’ll cheer you on from your home screen!"
+- tapOn: "CONTINUE"
+- assertVisible:
+    id: add_item_bottom_sheet_content
+- tapOn: "Cancel"
+- assertVisible: "Here’s what you can achieve in 3 months!"
+- assertVisible: "Converse with confidence"
+- assertVisible: "Build up your vocabulary"
+- assertVisible: "Develop a learning habit"
+- tapOn: "CONTINUE"

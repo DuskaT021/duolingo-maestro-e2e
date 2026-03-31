@@ -1,0 +1,67 @@
+name: Maestro smoke (Android)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  android-maestro-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Maestro CLI
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run smoke tests on Android emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          DUOLINGO_APK_URL: ${{ secrets.DUOLINGO_APK_URL }}
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: "120000"
+        with:
+          api-level: 34
+          arch: x86_64
+          profile: pixel_6
+          script: |
+            export PATH="$PATH:$HOME/.maestro/bin"
+            adb wait-for-device
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+
+            if [ -n "$DUOLINGO_APK_URL" ]; then
+              curl -fL -o /tmp/duolingo.apk "$DUOLINGO_APK_URL"
+              adb install -r /tmp/duolingo.apk
+            elif [ -f artifacts/duolingo.apk ]; then
+              adb install -r artifacts/duolingo.apk
+            else
+              echo "::error::No APK: set repository secret DUOLINGO_APK_URL (HTTPS URL to APK) or add artifacts/duolingo.apk for this branch."
+              exit 1
+            fi
+
+            maestro test maestro/flows/smoke/ \
+              --config maestro/config.yaml \
+              --format JUNIT \
+              --output maestro-report.xml \
+              --test-output-dir maestro-output
+
+      - name: Upload Maestro reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-reports
+          path: |
+            maestro-report.xml
+            maestro-output/**

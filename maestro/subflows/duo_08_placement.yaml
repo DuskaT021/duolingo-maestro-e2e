@@ -1,0 +1,8 @@
+appId: com.duolingo
+---
+# Onboarding — placement / first lesson entry.
+- assertVisible: "Now let’s find the best place to start!"
+- tapOn: "Learning Spanish for the first time?"
+- tapOn: "CONTINUE"
+- assertVisible: "I’M READY"
+- tapOn: "I’M READY"

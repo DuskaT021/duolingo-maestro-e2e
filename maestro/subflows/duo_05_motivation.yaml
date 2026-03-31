@@ -1,0 +1,15 @@
+appId: com.duolingo
+---
+# Onboarding — motivation and learning routine intro.
+- assertVisible: "Why are you learning Spanish?"
+- assertVisible: "Support my education"
+- assertVisible: "Just for fun"
+- assertVisible: "Boost my career"
+- assertVisible: "Prepare for travel"
+- assertVisible: "Spend time productively"
+- assertVisible: "Connect with people"
+- assertVisible: "Other"
+- tapOn: "Just for fun"
+- tapOn: "CONTINUE"
+- assertVisible: "Let’s set up a learning routine!"
+- tapOn: "CONTINUE"

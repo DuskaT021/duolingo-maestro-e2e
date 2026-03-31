@@ -1,0 +1,16 @@
+appId: com.duolingo
+---
+# Onboarding — daily goal and commitment streak copy.
+- assertVisible: "What’s your daily learning goal?"
+- assertVisible: "3 min / day"
+- assertVisible: "Casual"
+- assertVisible: "10 min / day"
+- assertVisible: "Regular"
+- assertVisible: "15 min / day"
+- assertVisible: "Serious"
+- assertVisible: "30 min / day"
+- assertVisible: "Intense"
+- tapOn: "15 min / day"
+- tapOn: "I’M COMMITTED"
+- tapOn: "That’s 75 words in your first week!"
+- tapOn: "CONTINUE"

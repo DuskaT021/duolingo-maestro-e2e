@@ -1,0 +1,14 @@
+appId: com.duolingo
+---
+# Onboarding — splash and first CONTINUE (after speech bubble).
+- assertVisible:
+    id: "com.duolingo:id/duoAnimation"
+- assertVisible: "Duolingo"
+- assertVisible: "Learn for free. Forever."
+- assertVisible: "GET STARTED"
+- assertVisible: "I ALREADY HAVE AN ACCOUNT"
+- tapOn: "GET STARTED"
+- assertVisible:
+    id: "com.duolingo:id/speechBubbleTop"
+- assertVisible: "CONTINUE"
+- tapOn: "CONTINUE"

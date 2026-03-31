@@ -1,0 +1,13 @@
+appId: com.duolingo
+onFlowComplete:
+  - runFlow: ../../subflows/teardown_stop_app.yaml
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../subflows/duo_01_welcome.yaml
+- runFlow: ../../subflows/duo_02_questions_intro.yaml
+- runFlow: ../../subflows/duo_03_hear_about.yaml
+- runFlow: ../../subflows/duo_04_proficiency.yaml
+- runFlow: ../../subflows/duo_05_motivation.yaml
+- runFlow: ../../subflows/duo_06_daily_goal.yaml
+- runFlow: ../../subflows/duo_07_widget_and_outcomes.yaml

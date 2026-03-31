@@ -1,0 +1,19 @@
+appId: com.duolingo
+---
+# Onboarding — attribution screen (scroll to reveal all options).
+- assertVisible: "How did you hear about Duolingo?"
+- assertVisible: "Google Search"
+- assertVisible: "News/article/blog"
+- assertVisible: "YouTube"
+- assertVisible: "TV"
+- assertVisible: "Facebook/Instagram"
+- assertVisible: "App store"
+- assertVisible: "TikTok"
+- assertVisible: "Friends/family"
+- scroll
+- assertVisible: "Other"
+- assertVisible: "Back"
+- assertVisible:
+    id: "com.duolingo:id/actionBar"
+- tapOn: "Other"
+- tapOn: "CONTINUE"

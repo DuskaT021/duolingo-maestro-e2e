@@ -1,0 +1,11 @@
+# Smoke: fast sanity check — app launches and first-screen chrome is visible.
+# Requires Duolingo installed; English UI recommended.
+appId: com.duolingo
+onFlowComplete:
+  - runFlow: ../../subflows/teardown_stop_app.yaml
+---
+- launchApp:
+    clearState: false
+- assertVisible:
+    id: "com.duolingo:id/duoAnimation"
+- assertVisible: "Duolingo"

@@ -1,0 +1,29 @@
+appId: com.duolingo
+---
+# Onboarding — questions intro through language selection.
+# Duolingo A/B copy fluctuates between "6" and "7" or "8".
+- runFlow:
+    when:
+      visible: "Just 6 quick questions before we start your first lesson!"
+    commands:
+      - assertVisible: "Just 6 quick questions before we start your first lesson!"
+- runFlow:
+    when:
+      visible: "Just 7 quick questions before we start your first lesson!"
+    commands:
+      - assertVisible: "Just 7 quick questions before we start your first lesson!"
+- runFlow:
+    when:
+      visible: "Just 8 quick questions before we start your first lesson!"
+    commands:
+      - assertVisible: "Just 8 quick questions before we start your first lesson!"
+- assertVisible: "CONTINUE"
+- tapOn: "CONTINUE"
+- assertVisible: "Back"
+- assertVisible:
+    id: "com.duolingo:id/actionBar"
+- assertVisible: "What would you like to learn?"
+- assertVisible: "For English speakers"
+- assertVisible: "Spanish"
+- tapOn: "Spanish"
+- tapOn: "CONTINUE"

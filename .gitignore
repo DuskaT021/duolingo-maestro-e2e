@@ -1,0 +1,3 @@
+# Local APKs for CI or manual install (never commit store builds)
+artifacts/*.apk
+.DS_Store
