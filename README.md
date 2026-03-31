@@ -11,6 +11,8 @@ If terminal launch fails with `Unable to launch app` / `localhost:7001`, see [MA
 This repo includes `maestro/flows/debug/` wrapper flows that set up required prior onboarding steps, then run a target subflow.  
 Use these when a subflow depends on app state and cannot be run standalone.
 
+> **CI note:** The smoke workflow requires a `DUOLINGO_APK_URL` secret (HTTPS link to a Duolingo APK). Without it the install step is skipped and the job exits early. Local runs work with Duolingo installed on a connected device/emulator.
+
 ## Tech stack
 
 - [Maestro](https://maestro.mobile.dev/) — YAML-based mobile UI automation
