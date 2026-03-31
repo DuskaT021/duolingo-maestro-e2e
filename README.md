@@ -16,3 +16,8 @@ Use these when a subflow depends on app state and cannot be run standalone.
 - [Maestro](https://maestro.mobile.dev/) — YAML-based mobile UI automation
 - Android Emulator / physical device with `adb`
 - Optional: GitHub Actions + `DUOLINGO_APK_URL` secret or `artifacts/duolingo.apk` for CI
+
+## Demo
+
+<video src="https://github.com/user-attachments/assets/3fad5ef2-c78c-488b-9522-2f48e036c2ca" controls width="100%"></video>
+
