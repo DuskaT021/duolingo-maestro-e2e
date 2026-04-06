@@ -1,4 +1,4 @@
-# Mobile E2E sample — Maestro
+# Mobile E2E sample - Maestro
 
 This repository showcases **Maestro** end-to-end flows for **Duolingo** (Android, `com.duolingo`): a **smoke** check (fast launch assertions) and a **full onboarding** journey split into **nested flows** (`runFlow`) for readability and reuse.
 
